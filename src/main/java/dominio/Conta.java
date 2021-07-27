@@ -25,21 +25,15 @@ public class Conta {
 	public String getAgencia() {
 		return agencia;
 	}
-	public void setAgencia(String agencia) {
-		this.agencia = agencia;
-	}
+	
 	public String getNumeroConta() {
 		return numeroConta;
 	}
-	public void setNumeroConta(String numeroConta) {
-		this.numeroConta = numeroConta;
-	}
+	
 	public String getChavePix() {
 		return chavePix;
 	}
-	public void setChavePix(String chavePix) {
-		this.chavePix = chavePix;
-	}
+	
 	public float getSaldo() {
 		return saldo;
 	}
