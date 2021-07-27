@@ -15,7 +15,8 @@ public class Main {
 				+"\nChave Pix: "+conta.getChavePix()
 				+"\nSaldo: R$"+String.format("%.2f",conta.getSaldo());
 		
-		System.out.println(dadosConta);
+		System.out.println(conta.toString());
+		System.out.println("\n"+dadosConta);
 
 	}
 

@@ -37,5 +37,14 @@ public class Conta {
 	public float getSaldo() {
 		return saldo;
 	}
-
+	
+	
+	@Override
+	public String toString() {
+		return "--- PrideDev Bank ---\n"
+				+"\nAgência: "+this.agencia
+				+"\nConta Número: "+this.numeroConta
+				+"\nChave Pix: "+this.chavePix
+				+"\nSaldo: R$"+String.format("%.2f",this.saldo);
+	}
 }
