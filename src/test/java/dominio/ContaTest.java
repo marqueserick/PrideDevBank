@@ -4,12 +4,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ContaTest {
+	ContaPoupanca cp = new ContaPoupanca("001","00001","0000",500);
 	
 	@Test
 	void deveSerPossivelRealizarSaqueQuandoTemSaldo() {
-		ContaPoupanca cp = new ContaPoupanca("001","00001","0000",500);
-		cp.sacar(480);
+		cp.sacar(485);
 		Assertions.assertTrue(cp.getSaldo()==0);
+	}
+	
+	@Test
+	void deveZerarTaxaSaqueContaPoupanca() {
+		Assertions.assertTrue(cp.getTaxaSaque()==0);
+		
 	}
 	
 	@Test

@@ -5,7 +5,7 @@ public class Conta {
 	protected String numeroConta;
 	protected String chavePix;
 	protected float saldo = -15;
-	protected static float taxaSaque = 5;
+	protected float taxaSaque = 5;
 	
 	
 	public Conta() {
@@ -24,15 +24,21 @@ public class Conta {
 	}
 	
 	public void sacar(float valorSaque) {
-		valorSaque += this.taxaSaque;
+		valorSaque += taxaSaque;
 		
 		if(this.saldo >= valorSaque) {
 			this.saldo -= valorSaque;
-			System.out.println("SAQUE REALIZADO: R$ "+valorSaque+"\nSaldo: R$ "+this.saldo);
+			System.out.println("SAQUE REALIZADO: R$ "+valorSaque+"\n"+this.toString());
 		}else {
 			throw new RuntimeException("Não foi possível sacar");
 		}
 	}
+	
+	public void transferir(float valorTransferir, Conta contaDestino ) {
+		this.sacar(valorTransferir);
+		contaDestino.depositar(valorTransferir);
+	}
+	
 	public String getAgencia() {
 		return agencia;
 	}
@@ -67,12 +73,12 @@ public class Conta {
 	
 	
 	
-//	@Override
-//	public String toString() {
-//		return "--- PrideDev Bank ---\n"
-//				+"\nAgência: "+this.agencia
-//				+"\nConta Número: "+this.numeroConta
-//				+"\nChave Pix: "+this.chavePix
-//				+"\nSaldo: R$"+this.saldo;
-//	}
+	@Override
+	public String toString() {
+		return "--- PrideDev Bank ---\n"
+				+"\nAgência: "+this.agencia
+				+"\nConta Número: "+this.numeroConta
+				+"\nChave Pix: "+this.chavePix
+				+"\nSaldo: R$"+this.saldo;
+	}
 }
