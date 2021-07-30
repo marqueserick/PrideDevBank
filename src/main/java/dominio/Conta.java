@@ -3,7 +3,7 @@ package dominio;
 public class Conta {
 	protected String agencia;
 	protected String numeroConta;
-	protected String chavePix;
+	protected String chavePix[] = new String[3];
 	protected float saldo = -15;
 	protected float taxaSaque = 5;
 	
@@ -11,7 +11,7 @@ public class Conta {
 	public Conta() {
 		
 	}
-	public Conta(String agencia, String numeroConta, String chavePix,
+	public Conta(String agencia, String numeroConta, String[] chavePix,
 			float valorDepositado) {
 		this.agencia = agencia;
 		this.numeroConta = numeroConta;
@@ -28,9 +28,9 @@ public class Conta {
 		
 		if(this.saldo >= valorSaque) {
 			this.saldo -= valorSaque;
-			System.out.println("SAQUE REALIZADO: R$ "+valorSaque+"\n"+this.toString());
+			System.out.println("SAQUE REALIZADO: R$ "+valorSaque+"\nSaldo: R$ "+this.saldo);
 		}else {
-			throw new RuntimeException("Não foi possível sacar");
+			throw new RuntimeException("SALDO INSUFICIENTE");
 		}
 	}
 	
@@ -51,11 +51,23 @@ public class Conta {
 	public void setNumeroConta(String numeroConta) {
 		this.numeroConta = numeroConta;
 	}
-	public String getChavePix() {
+	
+	public String[] getChavePix() {
 		return chavePix;
 	}
-	public void setChavePix(String chavePix) {
-		this.chavePix = chavePix;
+	
+	public void adicionarChavePix(String chavePix) {
+		int i=0;
+		
+		while(i < this.chavePix.length) {
+			
+			if(this.chavePix[i] == null) {
+				this.chavePix[i] = chavePix;
+				i = this.chavePix.length;
+			}else {
+				i++;
+			}
+		}
 	}
 	public float getSaldo() {
 		return saldo;
@@ -69,9 +81,6 @@ public class Conta {
 	public void setTaxaSaque(float taxaSaque) {
 		this.taxaSaque = taxaSaque;
 	}
-	
-	
-	
 	
 	@Override
 	public String toString() {
