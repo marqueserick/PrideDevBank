@@ -1,5 +1,7 @@
 package programa;
 
+import java.util.Scanner;
+
 import dominio.*;
 
 public class Main {
@@ -9,9 +11,16 @@ public class Main {
 		//Conta conta = new Conta("001","00001", "13981068201", 200);
 		//Conta cc = new ContaCorrente("001","00001", "13981068201", 200);		
 		//Conta cp = new ContaPoupanca("001","00002", "13981068201", 200);
-		Conta conta = new Conta();
+		//Conta conta = new Conta();
 		CaixaEletronico ce = new CaixaEletronico();
-		ce.retirar(692);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Digite valor que deseja sacar");
+		int valor = sc.nextInt();
+		ce.retirar(valor);
+		
+		ContaCorrente cc = new ContaCorrente();
+		cc.setSaldo(100);
+		cc.sacar(500);
 //		String dadosConta = "--- PrideDev Bank ---\n"
 //				+ "\nAgência: "+conta.getAgencia()
 //				+"\nConta Número: "+conta.getNumeroConta()

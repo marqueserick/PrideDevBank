@@ -4,8 +4,8 @@ public class Conta {
 	protected String agencia;
 	protected String numeroConta;
 	protected String chavePix[] = new String[3];
-	protected float saldo = -15;
-	protected float taxaSaque = 5;
+	protected float saldo;
+	protected float taxaSaque = 0;
 	
 	
 	public Conta() {

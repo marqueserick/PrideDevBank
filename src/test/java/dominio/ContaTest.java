@@ -1,38 +1,39 @@
 package dominio;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class ContaTest {
 	
 	@Test
-	void deveSerPossivelRealizarSaqueQuandoTemSaldo() {
-		
-	}
-	
-	@Test
-	void deveZerarTaxaSaqueContaPoupanca() {
-		
-		
-	}
-	
-	@Test
-	void deveCriarNovaContaSemParametros() {
+	void deveSerPossivelCriarUmaConta() {
+		//preparaçao
+		//execução
 		
 		Conta conta = new Conta();
-		Assertions.assertTrue(conta!=null);
+		//validação
+		assertTrue(conta != null);
 	}
 	
 	@Test
-	void deveSerPossivelCriarContaComSaldoNumeroAgenciaNumeroConta() {
-		
-//		float valorDepositado = 300;
-//		Conta conta = new Conta("001","00001",valorDepositado);
-//		
-//		Assertions.assertTrue(conta.saldo == (valorDepositado - 15));
-//		Assertions.assertTrue(conta.agencia.equals("001"));
-//		Assertions.assertTrue(conta.numeroConta.equals("00001"));
-
-		
+	void deveSerPossivelAdicionarUmaChavePix() {
+		//preparação
+		Conta conta = new Conta();
+		//execucão
+		conta.adicionarChavePix("anaalice.cd@gmail.com");
+		//validação
+		assertTrue(conta.getChavePix()[0].equals("anaalice.cd@gmail.com"));
 	}
+	@Test
+	void deveSerPossivelSacarQuandoTemosLimite() {
+		//preparaçao
+		Conta conta = new Conta();
+		conta.depositar(1000);
+		//execução
+		conta.sacar(200);
+		
+		//validação
+		assertTrue(800 == conta.getSaldo() );
+	}
+
 }
