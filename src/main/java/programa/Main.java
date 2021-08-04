@@ -7,20 +7,25 @@ import dominio.*;
 public class Main {
 
 	public static void main(String[] args) {
-
+		
+		try {
+		Cliente cliente = new Cliente("Erick","12345678900");
+		}catch(IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
 		//Conta conta = new Conta("001","00001", "13981068201", 200);
 		//Conta cc = new ContaCorrente("001","00001", "13981068201", 200);		
 		//Conta cp = new ContaPoupanca("001","00002", "13981068201", 200);
 		//Conta conta = new Conta();
-		CaixaEletronico ce = new CaixaEletronico();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Digite valor que deseja sacar");
-		int valor = sc.nextInt();
-		ce.retirar(valor);
 		
-		ContaCorrente cc = new ContaCorrente();
-		cc.setSaldo(100);
-		cc.sacar(500);
+//		ContaCorrente cc = new ContaCorrente();
+//		cc.setSaldo(100);
+//		cc.sacar(500);
+		
 //		String dadosConta = "--- PrideDev Bank ---\n"
 //				+ "\nAgência: "+conta.getAgencia()
 //				+"\nConta Número: "+conta.getNumeroConta()

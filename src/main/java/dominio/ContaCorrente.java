@@ -20,7 +20,7 @@ public class ContaCorrente extends Conta{
 			this.chequeEspecial -= valorSaque;
 			//System.out.println(resultado+"\nSaldo: R$ "+this.saldo+"\nSaldo Cheque Especial: R$ "+this.chequeEspecial);
 		}else {
-			throw new SaldoInsuficienteException("SALDO INSUFICIENTE");
+			throw new RuntimeException("SALDO INSUFICIENTE");
 		}	
 	}// fim do metodo sacar
 	

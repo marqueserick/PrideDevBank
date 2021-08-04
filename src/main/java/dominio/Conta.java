@@ -11,6 +11,10 @@ public class Conta {
 	public Conta() {
 		
 	}
+	public Conta(String agencia, String numeroConta) {
+		this.agencia = agencia;
+		this.numeroConta = numeroConta;
+	}
 	public Conta(String agencia, String numeroConta, String[] chavePix,
 			float valorDepositado) {
 		this.agencia = agencia;
