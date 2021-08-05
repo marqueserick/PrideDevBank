@@ -30,15 +30,14 @@ public class TestaConexao {
 //			
 //			clienteDao.save(cliente);
 			
-//			Cliente cliente = clienteDao.findByCPF("52345678910");
-//			System.out.println(cliente.getId()+" - "+cliente.getNome());
+			Cliente cliente = clienteDao.findBy("cpf","52345678910");
+			System.out.println(cliente.getId()+" - "+cliente.getNome());
 			
 //			Conta conta = new Conta("00001","0003",cliente,1500);
 //			contaDao.save(conta); 
 			
 			
-			Conta conta = contaDao.findByNumeroAgenciaAndNumeroConta("00001", "0003");
-			
+			Conta conta = contaDao.findByNumeroAgenciaAndNumeroConta("00001", "0002");
 			System.out.println(conta.toString());
 			
 			

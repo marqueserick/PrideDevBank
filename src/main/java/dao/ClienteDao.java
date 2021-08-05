@@ -24,27 +24,47 @@ public class ClienteDao {
 		
 	}
 	
-	public Cliente findByCPF(String CPF) throws SQLException {
-		Cliente cliente = null;
-		Statement st = con.createStatement();
-		String mysql = "select * from cliente where cpf ='"+CPF+"';";
-		st.execute(mysql);
-		ResultSet result = st.getResultSet();
-		
-		while(result.next()) {			
-			int id = result.getInt("id");
-			String nome = result.getString("nome");
-			String nomeSocial = result.getString("nomeSocial");
-			cliente = new Cliente(nome, CPF, nomeSocial, id);			
-		}
-		
-		return cliente;
-	}
+//	public Cliente findByCPF(String CPF) throws SQLException {
+//		Cliente cliente = null;
+//		Statement st = con.createStatement();
+//		String mysql = "select * from cliente where cpf ='"+CPF+"';";
+//		st.execute(mysql);
+//		ResultSet result = st.getResultSet();
+//		
+//		while(result.next()) {			
+//			int id = result.getInt("id");
+//			String nome = result.getString("nome");
+//			String nomeSocial = result.getString("nomeSocial");
+//			cliente = new Cliente(nome, CPF, nomeSocial, id);			
+//		}
+//		
+//		return cliente;
+//	}
+//	
+//	public Cliente findByID(int id) throws SQLException {
+//		Cliente cliente = null;
+//		Statement st = con.createStatement();
+//		String mysql = "select * from cliente where id ='"+id+"';";
+//		st.execute(mysql);
+//		ResultSet result = st.getResultSet();
+//		
+//		while(result.next()) {		
+//			String CPF = result.getString("cpf");
+//			String nome = result.getString("nome");
+//			String nomeSocial = result.getString("nomeSocial");
+//			cliente = new Cliente(nome, CPF, nomeSocial, id);			
+//		}
+//		
+//		return cliente;
+//	}
 	
-	public Cliente findByID(int id) throws SQLException {
+	public Cliente findBy(String parametroBusca, String valorBusca) throws SQLException {
+		if(parametroBusca.equals("id")) {
+			Integer.parseInt(valorBusca);
+		}
 		Cliente cliente = null;
 		Statement st = con.createStatement();
-		String mysql = "select * from cliente where id ='"+id+"';";
+		String mysql = "select * from cliente where "+parametroBusca+ "='"+valorBusca+"';";
 		st.execute(mysql);
 		ResultSet result = st.getResultSet();
 		
@@ -52,8 +72,10 @@ public class ClienteDao {
 			String CPF = result.getString("cpf");
 			String nome = result.getString("nome");
 			String nomeSocial = result.getString("nomeSocial");
-			cliente = new Cliente(nome, CPF, nomeSocial, id);			
+			int id = result.getInt("id");
+			cliente = new Cliente(nome, CPF, nomeSocial,id);			
 		}
+	
 		
 		return cliente;
 	}

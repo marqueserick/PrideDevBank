@@ -33,9 +33,11 @@ public class ContaDao {
 		while(result.next()) {
 			int id = result.getInt("id");
 			int idCliente = result.getInt("idCliente");
+			String idBusca = String.valueOf(idCliente);
 			float saldo = result.getFloat("saldo");
 			ClienteDao clienteDao = new ClienteDao();
-			Cliente cliente = clienteDao.findByID(idCliente);  
+			//Cliente cliente = clienteDao.findByID(idCliente);  
+			Cliente cliente = clienteDao.findBy("id",idBusca);
 			conta = new Conta(id, numeroAgencia, numeroConta, cliente, saldo);
 		}
 		return conta;
