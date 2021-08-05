@@ -11,10 +11,10 @@ public class ClienteTest {
 	@Test
 	void deveSerPossivelCriarClientePassandoValores() throws Exception {
 		
-		Cliente cliente = new Cliente("Ana","1234567890");
+		Cliente cliente = new Cliente("Ana","12345678900","Ana");
 		
 		Assertions.assertTrue(cliente.getNome().equals("Ana"));
-		Assertions.assertTrue(cliente.getCPF().equals("12345678909"));
+		Assertions.assertTrue(cliente.getCPF().equals("12345678900"));
 		
 		
 	}

@@ -8,13 +8,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		try {
-		Cliente cliente = new Cliente("Erick","12345678900");
-		}catch(IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+//		try {
+//		Cliente cliente = new Cliente("Erick","12345678900");
+//		}catch(IllegalArgumentException e) {
+//			System.out.println(e.getMessage());
+//		}catch(Exception e) {
+//			System.out.println(e.getMessage());
+//		}
 		
 		
 		//Conta conta = new Conta("001","00001", "13981068201", 200);
